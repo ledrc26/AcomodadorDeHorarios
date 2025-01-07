@@ -60,8 +60,7 @@ public class Principal extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jPanel3 = new javax.swing.JPanel();
         barTit = new javax.swing.JPanel();
@@ -101,58 +100,46 @@ public class Principal extends javax.swing.JFrame
         };
         jLabel1 = new javax.swing.JLabel();
         pnlCont = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
-        addMouseMotionListener(new java.awt.event.MouseMotionAdapter()
-        {
-            public void mouseDragged(java.awt.event.MouseEvent evt)
-            {
+        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
                 formMouseDragged(evt);
             }
-            public void mouseMoved(java.awt.event.MouseEvent evt)
-            {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
                 formMouseMoved(evt);
             }
         });
-        addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mousePressed(java.awt.event.MouseEvent evt)
-            {
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
                 formMousePressed(evt);
             }
         });
 
         barTit.setBackground(new java.awt.Color(0, 0, 0));
-        barTit.addMouseMotionListener(new java.awt.event.MouseMotionAdapter()
-        {
-            public void mouseDragged(java.awt.event.MouseEvent evt)
-            {
+        barTit.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
                 barTitMouseDragged(evt);
             }
-            public void mouseMoved(java.awt.event.MouseEvent evt)
-            {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
                 barTitMouseMoved(evt);
             }
         });
-        barTit.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mousePressed(java.awt.event.MouseEvent evt)
-            {
+        barTit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
                 barTitMousePressed(evt);
             }
-            public void mouseReleased(java.awt.event.MouseEvent evt)
-            {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
                 barTitMouseReleased(evt);
             }
         });
 
         jPanel1.setOpaque(false);
-        jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter()
-        {
-            public void mouseMoved(java.awt.event.MouseEvent evt)
-            {
+        jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jPanel1MouseMoved(evt);
             }
         });
@@ -164,25 +151,19 @@ public class Principal extends javax.swing.JFrame
         cerrarPrg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         cerrarPrg.setText("X");
         cerrarPrg.setToolTipText("Cerrar");
-        cerrarPrg.addMouseMotionListener(new java.awt.event.MouseMotionAdapter()
-        {
-            public void mouseMoved(java.awt.event.MouseEvent evt)
-            {
+        cerrarPrg.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
                 cerrarPrgMouseMoved(evt);
             }
         });
-        cerrarPrg.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseEntered(java.awt.event.MouseEvent evt)
-            {
+        cerrarPrg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
                 cerrarPrgMouseEntered(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt)
-            {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
                 cerrarPrgMouseExited(evt);
             }
-            public void mousePressed(java.awt.event.MouseEvent evt)
-            {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
                 cerrarPrgMousePressed(evt);
             }
         });
@@ -190,50 +171,38 @@ public class Principal extends javax.swing.JFrame
 
         btnMinimizar.setBackground(new java.awt.Color(84, 178, 222));
         btnMinimizar.setToolTipText("Minimizar");
-        btnMinimizar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter()
-        {
-            public void mouseMoved(java.awt.event.MouseEvent evt)
-            {
+        btnMinimizar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
                 btnMinimizarMouseMoved(evt);
             }
         });
-        btnMinimizar.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseEntered(java.awt.event.MouseEvent evt)
-            {
+        btnMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnMinimizarMouseEntered(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt)
-            {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnMinimizarMouseExited(evt);
             }
-            public void mousePressed(java.awt.event.MouseEvent evt)
-            {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnMinimizarMousePressed(evt);
             }
         });
         jPanel1.add(btnMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 36));
 
         btnMaximizar.setBackground(new java.awt.Color(84, 178, 222));
-        btnMaximizar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter()
-        {
-            public void mouseMoved(java.awt.event.MouseEvent evt)
-            {
+        btnMaximizar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
                 btnMaximizarMouseMoved(evt);
             }
         });
-        btnMaximizar.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseEntered(java.awt.event.MouseEvent evt)
-            {
+        btnMaximizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnMaximizarMouseEntered(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt)
-            {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnMaximizarMouseExited(evt);
             }
-            public void mousePressed(java.awt.event.MouseEvent evt)
-            {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnMaximizarMousePressed(evt);
             }
         });
@@ -261,15 +230,35 @@ public class Principal extends javax.swing.JFrame
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jPanel2.setBackground(new java.awt.Color(255, 0, 255));
+        jPanel2.setForeground(new java.awt.Color(204, 0, 204));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout pnlContLayout = new javax.swing.GroupLayout(pnlCont);
         pnlCont.setLayout(pnlContLayout);
         pnlContLayout.setHorizontalGroup(
             pnlContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(pnlContLayout.createSequentialGroup()
+                .addGap(353, 353, 353)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlContLayout.setVerticalGroup(
             pnlContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 683, Short.MAX_VALUE)
+            .addGroup(pnlContLayout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(514, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -587,6 +576,7 @@ public class Principal extends javax.swing.JFrame
     private javax.swing.JLabel cerrarPrg;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel pnlCont;
     // End of variables declaration//GEN-END:variables
