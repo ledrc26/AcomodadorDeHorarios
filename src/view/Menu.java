@@ -106,7 +106,7 @@ public class Menu extends javax.swing.JPanel implements ControlInter
     @Override
     public void expandir(Dimension dim)
     {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
     }
 
 
