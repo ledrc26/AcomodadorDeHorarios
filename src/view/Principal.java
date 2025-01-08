@@ -56,6 +56,11 @@ public class Principal extends javax.swing.JFrame
         pintar(new Menu());
         setLocationRelativeTo(null);
     }
+    
+    public void saludar()
+    {
+        System.out.println("dafadfasdff");
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
