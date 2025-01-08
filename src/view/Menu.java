@@ -44,7 +44,14 @@ public class Menu extends javax.swing.JPanel implements ControlInter
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Agregar Materias");
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
+                jLabel1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -64,7 +71,7 @@ public class Menu extends javax.swing.JPanel implements ControlInter
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Ver Materias");
-        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -87,7 +94,7 @@ public class Menu extends javax.swing.JPanel implements ControlInter
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Crear horarios");
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -102,6 +109,11 @@ public class Menu extends javax.swing.JPanel implements ControlInter
 
         add(jPanel3);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLabel1MouseClicked
+    {//GEN-HEADEREND:event_jLabel1MouseClicked
+        Principal.pintar(new LoginStudent());
+    }//GEN-LAST:event_jLabel1MouseClicked
 
     @Override
     public void expandir(Dimension dim)
