@@ -5,6 +5,7 @@
 package view;
 
 import herramientas.ControlInter;
+import java.awt.Color;
 import java.awt.Dimension;
 
 /**
@@ -44,9 +45,21 @@ public class Menu extends javax.swing.JPanel implements ControlInter
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Agregar Materias");
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel1.addFocusListener(new java.awt.event.FocusAdapter()
+        {
+            public void focusGained(java.awt.event.FocusEvent evt)
+            {
+                jLabel1FocusGained(evt);
+            }
+        });
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter()
         {
+            public void mouseEntered(java.awt.event.MouseEvent evt)
+            {
+                jLabel1MouseEntered(evt);
+            }
+
             public void mouseClicked(java.awt.event.MouseEvent evt)
             {
                 jLabel1MouseClicked(evt);
@@ -114,6 +127,18 @@ public class Menu extends javax.swing.JPanel implements ControlInter
     {//GEN-HEADEREND:event_jLabel1MouseClicked
         Principal.pintar(new LoginStudent());
     }//GEN-LAST:event_jLabel1MouseClicked
+    private void jLabel1FocusGained(java.awt.event.FocusEvent evt)//GEN-FIRST:event_jLabel1FocusGained
+    {//GEN-HEADEREND:event_jLabel1FocusGained
+        
+    }//GEN-LAST:event_jLabel1FocusGained
+
+    private void jLabel1MouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLabel1MouseEntered
+    {//GEN-HEADEREND:event_jLabel1MouseEntered
+        jLabel1.setBackground(new Color(43, 43, 43));
+        jLabel1.setOpaque(true);
+        jLabel1.revalidate();
+        jLabel1.repaint();
+    }//GEN-LAST:event_jLabel1MouseEntered
 
     @Override
     public void expandir(Dimension dim)
