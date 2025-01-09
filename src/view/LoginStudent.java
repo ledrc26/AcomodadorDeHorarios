@@ -4,18 +4,21 @@
  */
 package view;
 
+import java.awt.Cursor;
+
 /**
  *
- * @author romme
+ * @author ledrc
  */
-public class LoginStudent extends javax.swing.JPanel {
+public class LoginStudent extends javax.swing.JPanel
+{
 
     /**
      * Creates new form LoginStudent
      */
-    public LoginStudent() {
+    public LoginStudent()
+    {
         initComponents();
-        jRadioButton2.setSelected(true);
     }
 
     /**
@@ -28,114 +31,142 @@ public class LoginStudent extends javax.swing.JPanel {
     private void initComponents()
     {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
         jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jSpinner1 = new javax.swing.JSpinner();
+        jPanel3 = new javax.swing.JPanel();
 
-        setMaximumSize(new java.awt.Dimension(766, 732));
-        setMinimumSize(new java.awt.Dimension(766, 732));
-        setPreferredSize(new java.awt.Dimension(766, 732));
-        setLayout(null);
+        addMouseMotionListener(new java.awt.event.MouseMotionAdapter()
+        {
+            public void mouseMoved(java.awt.event.MouseEvent evt)
+            {
+                formMouseMoved(evt);
+            }
+        });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("class time");
-        add(jLabel2);
-        jLabel2.setBounds(160, 50, 108, 46);
+        jScrollPane1.setBorder(null);
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("Name of subject: ");
-        add(jLabel3);
-        jLabel3.setBounds(20, 120, 120, 33);
+        jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter()
+        {
+            public void mouseMoved(java.awt.event.MouseEvent evt)
+            {
+                jPanel1MouseMoved(evt);
+            }
+        });
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setText("Group:");
-        add(jLabel4);
-        jLabel4.setBounds(70, 160, 56, 30);
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Class time ");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setText("Start Time:");
-        add(jLabel5);
-        jLabel5.setBounds(50, 200, 79, 20);
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setText("Class name:");
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel6.setText("End Time:");
-        add(jLabel6);
-        jLabel6.setBounds(60, 240, 71, 20);
+        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jTextField1.setBorder(null);
+        jTextField1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel7.setText("Day of class:");
-        add(jLabel7);
-        jLabel7.setBounds(35, 280, 90, 20);
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel3.setText("No. de grupos:");
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel8.setText("is elective subject?:");
-        add(jLabel8);
-        jLabel8.setBounds(190, 330, 127, 25);
+        jSpinner1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        jRadioButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jRadioButton1.setText("Yes");
-        add(jRadioButton1);
-        jRadioButton1.setBounds(100, 370, 98, 25);
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 472, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
 
-        jRadioButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jRadioButton2.setText("No");
-        add(jRadioButton2);
-        jRadioButton2.setBounds(310, 370, 98, 25);
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        add(jTextField1);
-        jTextField1.setBounds(140, 120, 277, 27);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(53, Short.MAX_VALUE))
+        );
 
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        add(jTextField2);
-        jTextField2.setBounds(140, 160, 277, 30);
+        jScrollPane1.setViewportView(jPanel1);
 
-        jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        add(jTextField3);
-        jTextField3.setBounds(140, 200, 277, 26);
-
-        jTextField4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        add(jTextField4);
-        jTextField4.setBounds(140, 240, 277, 26);
-
-        jTextField5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        add(jTextField5);
-        jTextField5.setBounds(140, 280, 277, 26);
-
-        jButton1.setText("Aceptar");
-        add(jButton1);
-        jButton1.setBounds(190, 440, 72, 23);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1)
+        );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formMouseMoved(java.awt.event.MouseEvent evt)//GEN-FIRST:event_formMouseMoved
+    {//GEN-HEADEREND:event_formMouseMoved
+        setCursor(Cursor.getDefaultCursor());
+    }//GEN-LAST:event_formMouseMoved
+
+    private void jPanel1MouseMoved(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jPanel1MouseMoved
+    {//GEN-HEADEREND:event_jPanel1MouseMoved
+        formMouseMoved(evt);
+    }//GEN-LAST:event_jPanel1MouseMoved
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTextField1ActionPerformed
+    {//GEN-HEADEREND:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    public static javax.swing.JRadioButton jRadioButton1;
-    public static javax.swing.JRadioButton jRadioButton2;
-    public static javax.swing.JTextField jTextField1;
-    public static javax.swing.JTextField jTextField2;
-    public static javax.swing.JTextField jTextField3;
-    public static javax.swing.JTextField jTextField4;
-    public static javax.swing.JTextField jTextField5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

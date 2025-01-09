@@ -12,6 +12,7 @@ import java.util.Date;
  */
 public class Materia
 {
+    private String nombre;
     private String grupo;
     private Date[] horaEntrada;
     private Date[] horaSalida;
@@ -19,8 +20,9 @@ public class Materia
     private String profesor;
     private boolean optativa;
 
-    public Materia(String grupo, Date[] horaEntrada, Date[] horaSalida, Dias[] dias, String profesor)
+    public Materia(String nombre, String grupo, Date[] horaEntrada, Date[] horaSalida, Dias[] dias, String profesor)
     {
+        this.nombre = nombre;
         this.grupo = grupo;
         this.horaEntrada = horaEntrada;
         this.horaSalida = horaSalida;
@@ -28,6 +30,22 @@ public class Materia
         this.profesor = profesor;
     }
 
+    /**
+     * @return the nombre
+     */
+    public String getNombre()
+    {
+        return nombre;
+    }
+
+    /**
+     * @param nombre the nombre to set
+     */
+    public void setNombre(String nombre)
+    {
+        this.nombre = nombre;
+    }
+    
     /**
      * @return the grupo
      */

@@ -40,7 +40,7 @@ public class Menu extends javax.swing.JPanel implements ControlInter
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
 
-        setLayout(new java.awt.GridLayout(1, 3));
+        setLayout(new java.awt.GridLayout(1, 3, 10, 0));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -55,14 +55,21 @@ public class Menu extends javax.swing.JPanel implements ControlInter
         });
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter()
         {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
+                jLabel1MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt)
             {
                 jLabel1MouseEntered(evt);
             }
-
-            public void mouseClicked(java.awt.event.MouseEvent evt)
+            public void mouseExited(java.awt.event.MouseEvent evt)
             {
-                jLabel1MouseClicked(evt);
+                jLabel1MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt)
+            {
+                jLabel1MousePressed(evt);
             }
         });
 
@@ -71,7 +78,7 @@ public class Menu extends javax.swing.JPanel implements ControlInter
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -84,7 +91,18 @@ public class Menu extends javax.swing.JPanel implements ControlInter
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Ver Materias");
-        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseEntered(java.awt.event.MouseEvent evt)
+            {
+                jLabel2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt)
+            {
+                jLabel2MouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -92,14 +110,12 @@ public class Menu extends javax.swing.JPanel implements ControlInter
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE))
+            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
         );
 
         add(jPanel2);
@@ -107,13 +123,24 @@ public class Menu extends javax.swing.JPanel implements ControlInter
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Crear horarios");
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseEntered(java.awt.event.MouseEvent evt)
+            {
+                jLabel3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt)
+            {
+                jLabel3MouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,7 +152,7 @@ public class Menu extends javax.swing.JPanel implements ControlInter
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLabel1MouseClicked
     {//GEN-HEADEREND:event_jLabel1MouseClicked
-        Principal.pintar(new LoginStudent());
+        
     }//GEN-LAST:event_jLabel1MouseClicked
     private void jLabel1FocusGained(java.awt.event.FocusEvent evt)//GEN-FIRST:event_jLabel1FocusGained
     {//GEN-HEADEREND:event_jLabel1FocusGained
@@ -136,9 +163,45 @@ public class Menu extends javax.swing.JPanel implements ControlInter
     {//GEN-HEADEREND:event_jLabel1MouseEntered
         jLabel1.setBackground(new Color(43, 43, 43));
         jLabel1.setOpaque(true);
-        jLabel1.revalidate();
         jLabel1.repaint();
     }//GEN-LAST:event_jLabel1MouseEntered
+
+    private void jLabel1MouseExited(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLabel1MouseExited
+    {//GEN-HEADEREND:event_jLabel1MouseExited
+        jLabel1.setOpaque(false);
+        jLabel1.repaint();
+    }//GEN-LAST:event_jLabel1MouseExited
+
+    private void jLabel2MouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLabel2MouseEntered
+    {//GEN-HEADEREND:event_jLabel2MouseEntered
+        jLabel2.setBackground(new Color(43, 43, 43));
+        jLabel2.setOpaque(true);
+        jLabel2.repaint();
+    }//GEN-LAST:event_jLabel2MouseEntered
+
+    private void jLabel3MouseEntered(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLabel3MouseEntered
+    {//GEN-HEADEREND:event_jLabel3MouseEntered
+        jLabel3.setBackground(new Color(43, 43, 43));
+        jLabel3.setOpaque(true);
+        jLabel3.repaint();
+    }//GEN-LAST:event_jLabel3MouseEntered
+
+    private void jLabel2MouseExited(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLabel2MouseExited
+    {//GEN-HEADEREND:event_jLabel2MouseExited
+        jLabel2.setOpaque(false);
+        jLabel2.repaint();
+    }//GEN-LAST:event_jLabel2MouseExited
+
+    private void jLabel3MouseExited(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLabel3MouseExited
+    {//GEN-HEADEREND:event_jLabel3MouseExited
+        jLabel3.setOpaque(false);
+        jLabel3.repaint();
+    }//GEN-LAST:event_jLabel3MouseExited
+
+    private void jLabel1MousePressed(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLabel1MousePressed
+    {//GEN-HEADEREND:event_jLabel1MousePressed
+        Principal.pintar(new LoginStudent());
+    }//GEN-LAST:event_jLabel1MousePressed
 
     @Override
     public void expandir(Dimension dim)
