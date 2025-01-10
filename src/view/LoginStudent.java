@@ -80,6 +80,15 @@ public class LoginStudent extends javax.swing.JPanel
         jLabel3.setText("No. de grupos:");
 
         jSpinner1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(1, 1, 15, 1));
+        jSpinner1.setBorder(null);
+        jSpinner1.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
+                jSpinner1StateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -124,8 +133,7 @@ public class LoginStudent extends javax.swing.JPanel
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 548, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(jPanel1);
@@ -156,6 +164,11 @@ public class LoginStudent extends javax.swing.JPanel
     {//GEN-HEADEREND:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jSpinner1StateChanged(javax.swing.event.ChangeEvent evt)//GEN-FIRST:event_jSpinner1StateChanged
+    {//GEN-HEADEREND:event_jSpinner1StateChanged
+        
+    }//GEN-LAST:event_jSpinner1StateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

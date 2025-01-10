@@ -4,7 +4,7 @@
  */
 package adh;
 
-import java.util.Date;
+import java.time.LocalTime;
 
 /**
  *
@@ -14,13 +14,13 @@ public class Materia
 {
     private String nombre;
     private String grupo;
-    private Date[] horaEntrada;
-    private Date[] horaSalida;
+    private LocalTime [] horaEntrada;
+    private LocalTime [] horaSalida;
     private Dias dias[];
     private String profesor;
     private boolean optativa;
 
-    public Materia(String nombre, String grupo, Date[] horaEntrada, Date[] horaSalida, Dias[] dias, String profesor)
+    public Materia(String nombre, String grupo, LocalTime [] horaEntrada, LocalTime [] horaSalida, Dias[] dias, String profesor)
     {
         this.nombre = nombre;
         this.grupo = grupo;
@@ -65,7 +65,7 @@ public class Materia
     /**
      * @return the horaEntrada
      */
-    public Date[] getHoraEntrada()
+    public LocalTime [] getHoraEntrada()
     {
         return horaEntrada;
     }
@@ -73,7 +73,7 @@ public class Materia
     /**
      * @param horaEntrada the horaEntrada to set
      */
-    public void setHoraEntrada(Date[] horaEntrada)
+    public void setHoraEntrada(LocalTime [] horaEntrada)
     {
         this.horaEntrada = horaEntrada;
     }
@@ -81,7 +81,7 @@ public class Materia
     /**
      * @return the horaSalida
      */
-    public Date[] getHoraSalida()
+    public LocalTime [] getHoraSalida()
     {
         return horaSalida;
     }
@@ -89,7 +89,7 @@ public class Materia
     /**
      * @param horaSalida the horaSalida to set
      */
-    public void setHoraSalida(Date[] horaSalida)
+    public void setHoraSalida(LocalTime [] horaSalida)
     {
         this.horaSalida = horaSalida;
     }
