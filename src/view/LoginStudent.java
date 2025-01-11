@@ -7,6 +7,7 @@ package view;
 import herramientas.Scroll;
 import java.awt.Cursor;
 import java.awt.Dimension;
+import java.util.ArrayList;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
@@ -22,11 +23,13 @@ public class LoginStudent extends javax.swing.JPanel
     /**
      * Creates new form LoginStudent
      */
+    ArrayList<Formulario> formularios = new ArrayList<>();
+    
     public LoginStudent()
     {
         initComponents();
         jScrollPane1.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-//        dime = dim;
+//        dim = dim;
         jScrollPane1.getVerticalScrollBar().setUI(new Scroll());
         JScrollBar verticalScrollBar = jScrollPane1.getVerticalScrollBar();
         verticalScrollBar.setUnitIncrement(16);
@@ -115,6 +118,7 @@ public class LoginStudent extends javax.swing.JPanel
         jRadioButton1.setText("Si");
 
         buttonGroup1.add(jRadioButton2);
+        jRadioButton2.setSelected(true);
         jRadioButton2.setText("No");
         jRadioButton2.addActionListener(new java.awt.event.ActionListener()
         {
@@ -225,9 +229,10 @@ public class LoginStudent extends javax.swing.JPanel
 
     private JPanel createRow(int width)
     {
-        JPanel row = new Formulario();
-        row.setPreferredSize(new Dimension(width, 229)); // Ancho dinámico, alto fijo
-        row.setMaximumSize(new Dimension(Integer.MAX_VALUE, 229)); // Permitir expansión horizontal
+        Formulario row = new Formulario();
+        row.setPreferredSize(new Dimension(width, 229));
+        row.setMaximumSize(new Dimension(Integer.MAX_VALUE, 229));
+        formularios.add(row);
         return row;
     }
 
