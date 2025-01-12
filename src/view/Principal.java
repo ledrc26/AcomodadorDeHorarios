@@ -4,6 +4,7 @@
  */
 package view;
 
+import adh.Materia;
 import com.formdev.flatlaf.FlatDarkLaf;
 import herramientas.ControlInter;
 import java.awt.BasicStroke;
@@ -19,6 +20,7 @@ import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Line2D;
 import java.awt.geom.Rectangle2D;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
@@ -44,6 +46,7 @@ public class Principal extends javax.swing.JFrame
     private int y;
     private Point initialClick;
     private static final int BORDER_THICKNESS = 5;
+    private static ArrayList<Materia> materias = new ArrayList<>();
     
     public Principal()
     {
