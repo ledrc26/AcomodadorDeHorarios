@@ -4,6 +4,7 @@
  */
 package view;
 
+import herramientas.ControlInter;
 import herramientas.Scroll;
 import java.awt.Component;
 import java.awt.Cursor;
@@ -22,7 +23,7 @@ import javax.swing.ScrollPaneConstants;
  *
  * @author ledrc
  */
-public class LoginStudent extends javax.swing.JPanel
+public class LoginStudent extends javax.swing.JPanel implements ControlInter
 {
 
     /**
@@ -30,12 +31,13 @@ public class LoginStudent extends javax.swing.JPanel
      */
     ArrayList<Formulario> formularios = new ArrayList<>();
     ArrayList<Component> espacios = new ArrayList<>();
+    Dimension dim;
 
-    public LoginStudent()
+    public LoginStudent(Dimension dim)
     {
         initComponents();
         jScrollPane1.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-//        dim = dim;
+        this.dim = dim;
         jScrollPane1.getVerticalScrollBar().setUI(new Scroll());
         JScrollBar verticalScrollBar = jScrollPane1.getVerticalScrollBar();
         verticalScrollBar.setUnitIncrement(16);
@@ -325,7 +327,7 @@ public class LoginStudent extends javax.swing.JPanel
 
     private void jLabel5MousePressed(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLabel5MousePressed
     {//GEN-HEADEREND:event_jLabel5MousePressed
-        Principal.pintar(new Menu());
+        Principal.pintar(new Menu(dim));
     }//GEN-LAST:event_jLabel5MousePressed
 
     private void jLabel6MousePressed(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLabel6MousePressed
@@ -335,7 +337,7 @@ public class LoginStudent extends javax.swing.JPanel
 
     private JPanel createRow(int width)
     {
-        Formulario row = new Formulario();
+        Formulario row = new Formulario(dim);
         row.setPreferredSize(new Dimension(width, 229));
         row.setMaximumSize(new Dimension(Integer.MAX_VALUE, 229));
         formularios.add(row);
@@ -361,4 +363,19 @@ public class LoginStudent extends javax.swing.JPanel
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void expandir(Dimension dim)
+    {
+        this.dim = dim;
+        ControlInter cont = null;
+        for (java.awt.Component component : jPanel3.getComponents())
+        {
+            if (component instanceof ControlInter)
+            {
+                cont = (ControlInter) component;
+                cont.expandir(this.getSize());
+            }
+        }
+    }
 }

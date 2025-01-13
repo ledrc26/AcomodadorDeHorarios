@@ -4,23 +4,52 @@
  */
 package view;
 
+import com.raven.swing.TimePicker;
+import herramientas.ControlInter;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.event.ActionListener;
+import javax.swing.JLabel;
+import javax.swing.SwingUtilities;
 
 /**
  *
  * @author ledrc
  */
-public class Formulario extends javax.swing.JPanel
+public class Formulario extends javax.swing.JPanel implements ControlInter
 {
 
     /**
      * Creates new form Formulario
      */
-    public Formulario()
+    Dimension dim;
+
+    public Formulario(Dimension dim)
     {
         initComponents();
+        this.dim = dim;
+        timePicker1.set24hourMode(true);
+        timePicker1.addActionListener((e) ->
+        {
+            escogerHora(jLabel5, timePicker1);
+        });
+        timePicker2.set24hourMode(true);
+        timePicker2.addActionListener((e) ->
+        {
+            escogerHora(jLabel9, timePicker2);
+        });
+        timePicker3.set24hourMode(true);
+        timePicker3.addActionListener((e) ->
+        {
+            escogerHora(jLabel12, timePicker3);
+        });
+        timePicker4.set24hourMode(true);
+        timePicker4.addActionListener((e) ->
+        {
+            escogerHora(jLabel15, timePicker4);
+        });
     }
 
     /**
@@ -34,6 +63,9 @@ public class Formulario extends javax.swing.JPanel
     {
 
         timePicker1 = new com.raven.swing.TimePicker();
+        timePicker2 = new com.raven.swing.TimePicker();
+        timePicker3 = new com.raven.swing.TimePicker();
+        timePicker4 = new com.raven.swing.TimePicker();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -99,6 +131,14 @@ public class Formulario extends javax.swing.JPanel
             }
         };
 
+        timePicker1.setForeground(new java.awt.Color(43, 43, 43));
+
+        timePicker2.setForeground(new java.awt.Color(43, 43, 43));
+
+        timePicker3.setForeground(new java.awt.Color(43, 43, 43));
+
+        timePicker4.setForeground(new java.awt.Color(43, 43, 43));
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Grupo:");
 
@@ -126,6 +166,13 @@ public class Formulario extends javax.swing.JPanel
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Seleccionar hora.");
         jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mousePressed(java.awt.event.MouseEvent evt)
+            {
+                jLabel6MousePressed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel7.setText("2do dia de clase:");
@@ -144,6 +191,13 @@ public class Formulario extends javax.swing.JPanel
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Seleccionar hora.");
         jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel10.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mousePressed(java.awt.event.MouseEvent evt)
+            {
+                jLabel10MousePressed(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel11.setText("Hora del fin de la clase:");
@@ -157,6 +211,13 @@ public class Formulario extends javax.swing.JPanel
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("Seleccionar hora.");
         jLabel13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel13.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mousePressed(java.awt.event.MouseEvent evt)
+            {
+                jLabel13MousePressed(evt);
+            }
+        });
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel14.setText("Hora del fin de la clase:");
@@ -170,6 +231,13 @@ public class Formulario extends javax.swing.JPanel
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("Seleccionar hora.");
         jLabel16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel16.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mousePressed(java.awt.event.MouseEvent evt)
+            {
+                jLabel16MousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -197,15 +265,15 @@ public class Formulario extends javax.swing.JPanel
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -243,12 +311,12 @@ public class Formulario extends javax.swing.JPanel
                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -263,6 +331,30 @@ public class Formulario extends javax.swing.JPanel
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jLabel6MousePressed(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLabel6MousePressed
+    {//GEN-HEADEREND:event_jLabel6MousePressed
+        timePicker1.showPopup(SwingUtilities.getWindowAncestor(this), dim.width / 2 - 125, dim.height / 2 - 210);
+    }//GEN-LAST:event_jLabel6MousePressed
+
+    private void jLabel10MousePressed(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLabel10MousePressed
+    {//GEN-HEADEREND:event_jLabel10MousePressed
+        timePicker2.showPopup(SwingUtilities.getWindowAncestor(this), dim.width / 2 - 125, dim.height / 2 - 210);
+    }//GEN-LAST:event_jLabel10MousePressed
+
+    private void jLabel13MousePressed(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLabel13MousePressed
+    {//GEN-HEADEREND:event_jLabel13MousePressed
+        timePicker3.showPopup(SwingUtilities.getWindowAncestor(this), dim.width / 2 - 125, dim.height / 2 - 210);
+    }//GEN-LAST:event_jLabel13MousePressed
+
+    private void jLabel16MousePressed(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLabel16MousePressed
+    {//GEN-HEADEREND:event_jLabel16MousePressed
+        timePicker4.showPopup(SwingUtilities.getWindowAncestor(this), dim.width / 2 - 125, dim.height / 2 - 210);
+    }//GEN-LAST:event_jLabel16MousePressed
+
+    public void escogerHora(JLabel etiqueta, TimePicker reloj)
+    {
+        etiqueta.setText(reloj.getSelectedTime().substring(0, 5));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> jComboBox1;
@@ -286,5 +378,14 @@ public class Formulario extends javax.swing.JPanel
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private com.raven.swing.TimePicker timePicker1;
+    private com.raven.swing.TimePicker timePicker2;
+    private com.raven.swing.TimePicker timePicker3;
+    private com.raven.swing.TimePicker timePicker4;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void expandir(Dimension dim)
+    {
+        this.dim = dim;
+    }
 }

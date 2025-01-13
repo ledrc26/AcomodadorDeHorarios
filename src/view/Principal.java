@@ -56,13 +56,8 @@ public class Principal extends javax.swing.JFrame
         posPantX = this.getX();
         posPantY = this.getY();
         dim = getSize();
-        pintar(new Menu());
+        pintar(new Menu(dim));
         setLocationRelativeTo(null);
-    }
-    
-    public void saludar()
-    {
-        System.out.println("dafadfasdff");
     }
 
     /**
@@ -605,4 +600,20 @@ public class Principal extends javax.swing.JFrame
     private javax.swing.JPanel jPanel3;
     private static javax.swing.JPanel pnlCont;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the materias
+     */
+    public static ArrayList<Materia> getMaterias()
+    {
+        return materias;
+    }
+
+    /**
+     * @param aMaterias the materias to set
+     */
+    public static void setMaterias(ArrayList<Materia> aMaterias)
+    {
+        materias = aMaterias;
+    }
 }

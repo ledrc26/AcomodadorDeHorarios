@@ -18,9 +18,13 @@ public class Menu extends javax.swing.JPanel implements ControlInter
     /**
      * Creates new form Menu
      */
-    public Menu()
+    
+    Dimension dim;
+    
+    public Menu(Dimension dim)
     {
         initComponents();
+        this.dim = dim;
     }
 
     /**
@@ -199,13 +203,13 @@ public class Menu extends javax.swing.JPanel implements ControlInter
 
     private void jLabel1MousePressed(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLabel1MousePressed
     {//GEN-HEADEREND:event_jLabel1MousePressed
-        Principal.pintar(new LoginStudent());
+        Principal.pintar(new LoginStudent(dim));
     }//GEN-LAST:event_jLabel1MousePressed
 
     @Override
     public void expandir(Dimension dim)
     {
-        
+        this.dim = dim;
     }
 
 
