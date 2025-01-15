@@ -5,6 +5,7 @@
 package view;
 
 import adh.Materia;
+import adh.MenuGaleria;
 import com.formdev.flatlaf.FlatDarkLaf;
 import herramientas.ControlInter;
 import java.awt.BasicStroke;
@@ -21,6 +22,7 @@ import java.awt.event.MouseEvent;
 import java.awt.geom.Line2D;
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
@@ -56,10 +58,16 @@ public class Principal extends javax.swing.JFrame
         posPantX = this.getX();
         posPantY = this.getY();
         dim = getSize();
-        pintar(new Menu(dim));
+        ImageIcon iconos[] = {new ImageIcon("src/images/AgregarMaterias.png"),
+                                new ImageIcon("src/images/VerMaterias.png"),
+                                new ImageIcon("src/images/crearHorario.png")};
+        String titulos[] = {"Agregar Materias","Ver materias","Crear horarios"};
+        Menu menu = new Menu(dim);
+        MenuGaleria mg = new MenuGaleria(menu, titulos, iconos, Color.decode("#161515"), 220);
+        
+        pintar(menu);
         setLocationRelativeTo(null);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
