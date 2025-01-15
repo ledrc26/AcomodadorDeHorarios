@@ -7,6 +7,7 @@ package adh;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
@@ -19,6 +20,8 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
+import view.LoginStudent;
+import view.Principal;
 
 /**
  *
@@ -36,15 +39,16 @@ public class MenuGaleria
     ArrayList<JLabel> arregloLabels = new ArrayList<>();
     public static ArrayList<Integer> layeredPanePrioridad = new ArrayList<>();
     final int MAX_PRIORIDAD = 100;
+    Dimension dim;
 
-    public MenuGaleria(JPanel padre, String[] titulos, ImageIcon[] iconos, Color colorFondoOpcion, int espacio)
+    public MenuGaleria(JPanel padre, String[] titulos, ImageIcon[] iconos, Color colorFondoOpcion, int espacio, Dimension dim)
     {
         this.padre = padre;
         this.titulos = titulos;
         this.iconos = iconos;
         this.colorFondoOpcion = colorFondoOpcion;
         this.espacioX = espacio;
-
+        this.dim = dim;
         SwingUtilities.invokeLater(() ->
         {
             acomodaPaneles();
@@ -129,6 +133,12 @@ public class MenuGaleria
                         reiniciaPrioridad(i);
                     }
                 }
+            }
+            
+            @Override
+            public void mousePressed(MouseEvent e)
+            {
+                Principal.pintar(new LoginStudent(dim));
             }
         });
         return label;

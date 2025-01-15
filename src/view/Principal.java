@@ -63,7 +63,7 @@ public class Principal extends javax.swing.JFrame
                                 new ImageIcon("src/images/crearHorario.png")};
         String titulos[] = {"Agregar Materias","Ver materias","Crear horarios"};
         Menu menu = new Menu(dim);
-        MenuGaleria mg = new MenuGaleria(menu, titulos, iconos, Color.decode("#161515"), 220);
+        MenuGaleria mg = new MenuGaleria(menu, titulos, iconos, Color.decode("#161515"), 220, dim);
         
         pintar(menu);
         setLocationRelativeTo(null);
