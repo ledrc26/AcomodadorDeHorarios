@@ -4,13 +4,17 @@
  */
 package view;
 
+import adh.Dias;
 import com.raven.swing.TimePicker;
 import herramientas.ControlInter;
+import herramientas.Mensajes;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
-import java.awt.event.ActionListener;
+import javax.swing.BorderFactory;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 
@@ -30,6 +34,8 @@ public class Formulario extends javax.swing.JPanel implements ControlInter
     {
         initComponents();
         this.dim = dim;
+        jComboBox2.addItem("Seleccionar un dia");
+        jComboBox2.setSelectedIndex(7);
         timePicker1.set24hourMode(true);
         timePicker1.addActionListener((e) ->
         {
@@ -71,7 +77,7 @@ public class Formulario extends javax.swing.JPanel implements ControlInter
         jLabel2 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<>(Dias.values());
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel()
@@ -87,7 +93,7 @@ public class Formulario extends javax.swing.JPanel implements ControlInter
             }
         };
         jLabel7 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>(Dias.values());
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel()
@@ -143,6 +149,7 @@ public class Formulario extends javax.swing.JPanel implements ControlInter
         jLabel1.setText("Grupo:");
 
         jTextField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(97, 99, 101)));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("Nombre del profesor:");
@@ -355,10 +362,32 @@ public class Formulario extends javax.swing.JPanel implements ControlInter
     {
         etiqueta.setText(reloj.getSelectedTime().substring(0, 5));
     }
+    
+//    public boolean validar()
+//    {
+//        JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
+//        if (jTextField1.getText().isEmpty())
+//        {
+//            jTextField1.setBorder(BorderFactory.createLineBorder(new Color(200, 0, 0)));
+//            new Mensajes(frame, true, Mensajes.MENSAJE_ERROR, "Ingresa el grupo").setVisible(true);
+//            return false;
+//        }
+//        try
+//        {
+//            String[] horaCompEnt = jLabel5.getText().split(":");
+//            String[] horaCompSal = jLabel12.getText().split(":");
+//            int horaEnt = Integer.parseInt(horaCompEnt[0]);
+//            int minEnt = Integer.parseInt(horaCompEnt[1]);
+//            int horaSal = Integer.parseInt(horaCompSal[0]);
+//            int minSal =Integer.parseInt(horaCompSal[1]);
+//        } catch (Exception e)
+//        {
+//        }
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<Dias> jComboBox1;
+    private javax.swing.JComboBox<Object> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
