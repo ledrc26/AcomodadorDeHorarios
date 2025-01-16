@@ -13,6 +13,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.time.LocalTime;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -29,6 +30,9 @@ public class Formulario extends javax.swing.JPanel implements ControlInter
      * Creates new form Formulario
      */
     Dimension dim;
+    String grupo;
+    LocalTime horaEnt;
+    LocalTime horaSal;
 
     public Formulario(Dimension dim)
     {
@@ -362,28 +366,56 @@ public class Formulario extends javax.swing.JPanel implements ControlInter
     {
         etiqueta.setText(reloj.getSelectedTime().substring(0, 5));
     }
-    
-//    public boolean validar()
-//    {
-//        JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
-//        if (jTextField1.getText().isEmpty())
-//        {
-//            jTextField1.setBorder(BorderFactory.createLineBorder(new Color(200, 0, 0)));
-//            new Mensajes(frame, true, Mensajes.MENSAJE_ERROR, "Ingresa el grupo").setVisible(true);
-//            return false;
-//        }
-//        try
-//        {
-//            String[] horaCompEnt = jLabel5.getText().split(":");
-//            String[] horaCompSal = jLabel12.getText().split(":");
-//            int horaEnt = Integer.parseInt(horaCompEnt[0]);
-//            int minEnt = Integer.parseInt(horaCompEnt[1]);
-//            int horaSal = Integer.parseInt(horaCompSal[0]);
-//            int minSal =Integer.parseInt(horaCompSal[1]);
-//        } catch (Exception e)
-//        {
-//        }
-//    }
+
+    public boolean validar()
+    {
+        JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
+        if (jTextField1.getText().isEmpty() && jTextField1.getText().replace(" ", "").isEmpty())
+        {
+            jTextField1.setBorder(BorderFactory.createLineBorder(new Color(200, 0, 0)));
+            new Mensajes(frame, true, Mensajes.MENSAJE_ERROR, "Ingresa el grupo").setVisible(true);
+            return false;
+        }
+        grupo = jTextField1.getText();
+        if (!validarFechas("primer", jLabel5, jLabel12))
+        {
+            return false;
+        }
+        if (jComboBox2.getSelectedItem() instanceof Dias)
+        {
+            return validarFechas("segundo", jLabel9, jLabel15);
+        }
+        return true;
+    }
+
+    public boolean validarFechas(String dia, JLabel labelHoraEnt, JLabel labelHoraSal)
+    {
+        String hora = "entrada";
+        try
+        {
+            String[] horaCompEnt = labelHoraEnt.getText().split(":");
+            String[] horaCompSal = labelHoraSal.getText().split(":");
+            int horaEnt = Integer.parseInt(horaCompEnt[0]);
+            int minEnt = Integer.parseInt(horaCompEnt[1]);
+            hora = "salida";
+            int horaSal = Integer.parseInt(horaCompSal[0]);
+            int minSal = Integer.parseInt(horaCompSal[1]);
+            this.horaEnt = LocalTime.of(horaEnt, minEnt);
+            this.horaSal = LocalTime.of(horaSal, minSal);
+            if (this.horaSal.isBefore(this.horaEnt))
+            {
+                new Mensajes((JFrame) SwingUtilities.getWindowAncestor(this), true, Mensajes.MENSAJE_ERROR,
+                    "La hora de entrada debe de ser menor a la de salida del dia " + dia + " del grupo " + grupo).setVisible(true);
+                return false;
+            }
+        } catch (NumberFormatException e)
+        {
+            new Mensajes((JFrame) SwingUtilities.getWindowAncestor(this), true, Mensajes.MENSAJE_ERROR,
+                    "Selecciona la hora de " + hora + " del " + dia + " dia del grupo " + grupo).setVisible(true);
+            return true;
+        }
+        return true;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<Dias> jComboBox1;

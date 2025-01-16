@@ -5,7 +5,9 @@
 package view;
 
 import herramientas.ControlInter;
+import herramientas.Mensajes;
 import herramientas.Scroll;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -13,11 +15,14 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.util.ArrayList;
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -107,7 +112,7 @@ public class LoginStudent extends javax.swing.JPanel implements ControlInter
         jLabel2.setText("Class name:");
 
         jTextField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextField1.setBorder(null);
+        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(97, 99, 101)));
         jTextField1.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -332,6 +337,19 @@ public class LoginStudent extends javax.swing.JPanel implements ControlInter
 
     private void jLabel6MousePressed(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLabel6MousePressed
     {//GEN-HEADEREND:event_jLabel6MousePressed
+        if (jTextField1.getText().isEmpty() && jTextField1.getText().replace(" ", "").isEmpty())
+        {
+            jTextField1.setBorder(BorderFactory.createLineBorder(new Color(200, 0, 0)));
+            new Mensajes((JFrame) SwingUtilities.getWindowAncestor(this), true, Mensajes.MENSAJE_ERROR, "Ingresa el nombre de la materia").setVisible(true);
+            return;
+        }
+        for (int i = 0; i < formularios.size(); i++)
+        {
+            if (!formularios.get(i).validar())
+            {
+                return;
+            }
+        }
         
     }//GEN-LAST:event_jLabel6MousePressed
 

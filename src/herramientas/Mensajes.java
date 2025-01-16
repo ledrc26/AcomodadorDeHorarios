@@ -35,14 +35,14 @@ public class Mensajes extends javax.swing.JDialog
         Color color;
         if (MENSAJE_EXITO == tipo)
         {
-            icono = ModificadorImagenes.redimencionarImagenes(new ImageIcon(getClass().getResource(tipo)), 150, 150);
+            icono = ModificadorImagenes.redimencionarImagenes(new ImageIcon(getClass().getResource(tipo)), 130, 130);
             jPanel1.remove(jLabel1);
             jPanel1.add(jLabel1, new AbsoluteConstraints(0, 80, 130, 120));
             jLabel2.setText("¡Éxito!");
             color = new Color(84, 178, 222);
         } else
         {
-            icono=ModificadorImagenes.redimencionarImagenes(new ImageIcon(getClass().getResource(tipo)), 110, 110);
+            icono=ModificadorImagenes.redimencionarImagenes(new ImageIcon(getClass().getResource(tipo)), 85, 85);
             jLabel2.setText("¡Error!");
             color = new Color(255, 0, 0);
         }
