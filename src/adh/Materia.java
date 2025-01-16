@@ -20,7 +20,7 @@ public class Materia
     private String profesor;
     private boolean optativa;
 
-    public Materia(String nombre, String grupo, LocalTime [] horaEntrada, LocalTime [] horaSalida, Dias[] dias, String profesor)
+    public Materia(String nombre, String grupo, LocalTime [] horaEntrada, LocalTime [] horaSalida, Dias[] dias, String profesor, boolean optativa)
     {
         this.nombre = nombre;
         this.grupo = grupo;
@@ -28,6 +28,7 @@ public class Materia
         this.horaSalida = horaSalida;
         this.dias = dias;
         this.profesor = profesor;
+        this.optativa = optativa;
     }
 
     /**

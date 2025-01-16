@@ -4,6 +4,7 @@
  */
 package view;
 
+import adh.Materia;
 import herramientas.ControlInter;
 import herramientas.Mensajes;
 import herramientas.Scroll;
@@ -350,7 +351,14 @@ public class LoginStudent extends javax.swing.JPanel implements ControlInter
                 return;
             }
         }
-        
+        for (Formulario formulario: formularios)
+        {
+            Principal.getMaterias().add(new Materia(jTextField1.getText().trim(), 
+                    formulario.grupo, formulario.horaEnt, 
+                    formulario.horaSal, formulario.dias, 
+                    formulario.profesor, jRadioButton1.isSelected()));
+        }
+        new Mensajes((JFrame) SwingUtilities.getWindowAncestor(this), true, Mensajes.MENSAJE_EXITO, "Se guardo la materia con exito").setVisible(true);
     }//GEN-LAST:event_jLabel6MousePressed
 
     private JPanel createRow(int width)
