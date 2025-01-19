@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package adh;
+package herramientas;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -29,7 +29,6 @@ import view.Principal;
  */
 public class MenuGaleria
 {
-
     JPanel padre;
     String titulos[];
     ImageIcon iconos[];
@@ -55,6 +54,28 @@ public class MenuGaleria
         });
     }
 
+    /*
+        Método en dónde se colocará la función que manejará el mouse clicked en cada JPanel
+        de izquierda a derecha
+     */
+    private void manejarEventoClicked(MouseEvent e, int i)
+    {
+        switch (i)
+        {
+            case 0:
+                Principal.pintar(new LoginStudent(dim));
+                break;
+            case 1:
+                System.out.println("segunda Opcion");
+                break;
+            case 2:
+                System.out.println("Tercera Opcion");
+                break;
+            default:
+                System.out.println("No se ha configurado correctamente");
+        }
+    }
+
     private void acomodaPaneles()
     {
         layeredPane.setLayout(null);
@@ -64,7 +85,7 @@ public class MenuGaleria
         for (int i = 0; i < titulos.length; i++)
         {
 
-            JLabel label = configuraJLabel(titulos[i], iconos[i]);
+            JLabel label = crearLabel(titulos[i], iconos[i], i);
             JPanel panel = configuraPanelOpcion(label, anchoPorPanel);
 
             panel.setBounds(calculaX(i, anchoPorPanel), 0, anchoPorPanel, this.padre.getHeight());
@@ -99,49 +120,67 @@ public class MenuGaleria
         return panel;
     }
 
-    private JLabel configuraJLabel(String titulo, ImageIcon icon)
+    private JLabel crearLabel(String titulo, ImageIcon icon, int i)
     {
-
         JLabel label = new JLabel(titulo, icon, JLabel.CENTER);
+        configurarEstiloLabel(label);
+        agregarEventosLabel(label, i);
+        return label;
+    }
+
+    private void configurarEstiloLabel(JLabel label)
+    {
         label.setFont(new Font("Verdana", 1, 34));
-
         label.setForeground(Color.decode("#f4143f"));
-
         label.setVerticalAlignment(JLabel.CENTER);
         label.setHorizontalTextPosition(JLabel.CENTER);
         label.setVerticalTextPosition(JLabel.TOP);
+    }
 
+    private void agregarEventosLabel(JLabel label, int i)
+    {
         label.addMouseListener(new MouseAdapter()
         {
             @Override
             public void mouseEntered(MouseEvent e)
             {
-                Point cursorActual = e.getPoint();
-                for (int i = 0; i < arregloLabels.size(); i++)
-                {
-                    JPanel p = recuperaPanel((JLabel) arregloLabels.get(i));
-                    Point cursorDentroPanel = SwingUtilities.convertPoint(label, cursorActual, p);
-
-                    if (p.contains(cursorDentroPanel))
-                    {
-                        p.setBorder(BorderFactory.createMatteBorder(5, 5, 5, 5, Color.white));
-                        layeredPane.setLayer(p, MAX_PRIORIDAD);
-                        if (i == 0)
-                        {
-                            cuandoSeSeleccionaPanel1();
-                        }
-                        reiniciaPrioridad(i);
-                    }
-                }
+                manejaMouseEnter(e, label);
             }
-            
+
             @Override
-            public void mousePressed(MouseEvent e)
+            public void mouseClicked(MouseEvent e)
             {
-                Principal.pintar(new LoginStudent(dim));
+                manejarEventoClicked(e, i);
             }
         });
-        return label;
+    }
+
+    private void manejaMouseEnter(MouseEvent e, JLabel label)
+    {
+        Point cursorActual = e.getPoint();
+
+        for (int i = 0; i < arregloLabels.size(); i++)
+        {
+            JPanel panel = recuperaPanel(arregloLabels.get(i));
+            Point cursorDentroPanel = SwingUtilities.convertPoint(label, cursorActual, panel);
+
+            if (panel.contains(cursorDentroPanel))
+            {
+                actualizarPanelSeleccionado(panel, i);
+                break;
+            }
+        }
+    }
+
+    private void actualizarPanelSeleccionado(JPanel panel, int index)
+    {
+        panel.setBorder(BorderFactory.createMatteBorder(5, 5, 5, 5, Color.WHITE));
+        layeredPane.setLayer(panel, MAX_PRIORIDAD);
+        if (index == 0)
+        {
+            cuandoSeSeleccionaPanel1();
+        }
+        reiniciaPrioridad(index);
     }
 
     private void reiniciaPrioridad(int pos)
