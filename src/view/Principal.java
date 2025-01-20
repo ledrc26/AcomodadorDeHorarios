@@ -5,7 +5,7 @@
 package view;
 
 import adh.Materia;
-import adh.MenuGaleria;
+import herramientas.MenuGaleria;
 import com.formdev.flatlaf.FlatDarkLaf;
 import herramientas.ControlInter;
 import java.awt.BasicStroke;
@@ -58,9 +58,9 @@ public class Principal extends javax.swing.JFrame
         posPantX = this.getX();
         posPantY = this.getY();
         dim = getSize();
-        ImageIcon iconos[] = {new ImageIcon("src/images/AgregarMaterias.png"),
-                                new ImageIcon("src/images/VerMaterias.png"),
-                                new ImageIcon("src/images/crearHorario.png")};
+        ImageIcon iconos[] = {new ImageIcon("src/Imagenes/AgregarMaterias.png"),
+                                new ImageIcon("src/Imagenes/VerMaterias.png"),
+                                new ImageIcon("src/Imagenes/crearHorario.png")};
         String titulos[] = {"Agregar Materias","Ver materias","Crear horarios"};
         Menu menu = new Menu(dim);
         MenuGaleria mg = new MenuGaleria(menu, titulos, iconos, Color.decode("#161515"), 220, dim);
