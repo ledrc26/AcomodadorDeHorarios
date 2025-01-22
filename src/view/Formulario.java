@@ -5,6 +5,7 @@
 package view;
 
 import adh.Dias;
+import adh.RangoHoras;
 import com.raven.swing.TimePicker;
 import herramientas.ControlInter;
 import herramientas.Mensajes;
@@ -14,6 +15,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -31,16 +33,15 @@ public class Formulario extends javax.swing.JPanel implements ControlInter
      */
     Dimension dim;
     String grupo;
-    LocalTime[] horaEnt;
-    LocalTime[] horaSal;
-    Dias[] dias;
+    ArrayList<RangoHoras> horasMaateria;
+    ArrayList<Dias> dias;
     String profesor;
 
     public Formulario(Dimension dim)
     {
         initComponents();
-        horaEnt = new LocalTime[2];
-        horaSal = new LocalTime[2];
+        horasMaateria = new ArrayList<>();
+        dias = new ArrayList<>();
         this.dim = dim;
         jComboBox2.addItem("Seleccionar un dia");
         jComboBox2.setSelectedIndex(7);
@@ -382,23 +383,14 @@ public class Formulario extends javax.swing.JPanel implements ControlInter
             return false;
         }
         grupo = jTextField1.getText();
-        Dias dia = (Dias) jComboBox1.getSelectedItem();
-        dias = new Dias[]
-        {
-            dia
-        };
+        dias.add((Dias) jComboBox1.getSelectedItem());
         if (!validarFechas("primer", jLabel5, jLabel12, 0))
         {
             return false;
         }
         if (jComboBox2.getSelectedItem() instanceof Dias)
         {
-            dia = (Dias) jComboBox2.getSelectedItem();
-            dias = new Dias[]
-            {
-                dias[0],
-                dia
-            };
+            dias.add((Dias) jComboBox2.getSelectedItem());
             return validarFechas("segundo", jLabel9, jLabel15, 1);
         }
         return true;
@@ -416,18 +408,16 @@ public class Formulario extends javax.swing.JPanel implements ControlInter
             hora = "salida";
             int horaSal = Integer.parseInt(horaCompSal[0]);
             int minSal = Integer.parseInt(horaCompSal[1]);
-            this.horaEnt[posicion] = LocalTime.of(horaEnt, minEnt);
-            this.horaSal[posicion] = LocalTime.of(horaSal, minSal);
-            if (this.horaSal[posicion].isBefore(this.horaEnt[posicion]) || this.horaSal[posicion].equals(this.horaEnt[posicion]))
-            {
-                new Mensajes((JFrame) SwingUtilities.getWindowAncestor(this), true, Mensajes.MENSAJE_ERROR,
-                        "La hora de entrada debe de ser menor a la de salida del dia " + dia + " del grupo " + grupo).setVisible(true);
-                return false;
-            }
+            horasMaateria.add(new RangoHoras(LocalTime.of(horaEnt, minEnt), LocalTime.of(horaSal, minSal)));
         } catch (NumberFormatException e)
         {
             new Mensajes((JFrame) SwingUtilities.getWindowAncestor(this), true, Mensajes.MENSAJE_ERROR,
                     "Selecciona la hora de " + hora + " del " + dia + " dia del grupo " + grupo).setVisible(true);
+            return false;
+        } catch (IllegalArgumentException e)
+        {
+            new Mensajes((JFrame) SwingUtilities.getWindowAncestor(this), true, Mensajes.MENSAJE_ERROR,
+                    "La hora de entrada debe de ser menor a la de salida del dia " + dia + " del grupo " + grupo).setVisible(true);
             return false;
         }
 

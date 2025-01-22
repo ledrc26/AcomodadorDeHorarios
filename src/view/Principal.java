@@ -53,6 +53,7 @@ public class Principal extends javax.swing.JFrame
     public Principal()
     {
         initComponents();
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/calendario.png")).getImage());
         setMinimumSize(new Dimension(1290, 725));
         lado = 0;
         posPantX = this.getX();

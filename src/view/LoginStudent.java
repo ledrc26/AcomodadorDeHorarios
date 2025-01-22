@@ -4,6 +4,7 @@
  */
 package view;
 
+import adh.Grupo;
 import adh.Materia;
 import herramientas.ControlInter;
 import herramientas.Mensajes;
@@ -351,13 +352,12 @@ public class LoginStudent extends javax.swing.JPanel implements ControlInter
                 return;
             }
         }
+        ArrayList<Grupo> grupos = new ArrayList<>();
         for (Formulario formulario: formularios)
         {
-            Principal.getMaterias().add(new Materia(jTextField1.getText().trim(), 
-                    formulario.grupo, formulario.horaEnt, 
-                    formulario.horaSal, formulario.dias, 
-                    formulario.profesor, jRadioButton1.isSelected()));
+            grupos.add(new Grupo(formulario.grupo, formulario.horasMaateria, formulario.dias, formulario.profesor));
         }
+        Principal.getMaterias().add(new Materia(jTextField1.getText(), grupos, jRadioButton1.isSelected()));
         new Mensajes((JFrame) SwingUtilities.getWindowAncestor(this), true, Mensajes.MENSAJE_EXITO, "Se guardo la materia con exito").setVisible(true);
     }//GEN-LAST:event_jLabel6MousePressed
 

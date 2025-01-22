@@ -5,6 +5,7 @@
 package adh;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,21 +14,13 @@ import java.time.LocalTime;
 public class Materia
 {
     private String nombre;
-    private String grupo;
-    private LocalTime [] horaEntrada;
-    private LocalTime [] horaSalida;
-    private Dias dias[];
-    private String profesor;
+    private ArrayList<Grupo> grupos;
     private boolean optativa;
 
-    public Materia(String nombre, String grupo, LocalTime [] horaEntrada, LocalTime [] horaSalida, Dias[] dias, String profesor, boolean optativa)
+    public Materia(String nombre, ArrayList<Grupo> grupos, boolean optativa)
     {
         this.nombre = nombre;
-        this.grupo = grupo;
-        this.horaEntrada = horaEntrada;
-        this.horaSalida = horaSalida;
-        this.dias = dias;
-        this.profesor = profesor;
+        this.grupos = grupos;
         this.optativa = optativa;
     }
 
@@ -46,86 +39,37 @@ public class Materia
     {
         this.nombre = nombre;
     }
-    
+
     /**
-     * @return the grupo
+     * @return the grupos
      */
-    public String getGrupo()
+    public ArrayList<Grupo> getGrupos()
     {
-        return grupo;
+        return grupos;
     }
 
     /**
-     * @param grupo the grupo to set
+     * @param grupos the grupos to set
      */
-    public void setGrupo(String grupo)
+    public void setGrupos(ArrayList<Grupo> grupos)
     {
-        this.grupo = grupo;
+        this.grupos = grupos;
     }
 
     /**
-     * @return the horaEntrada
+     * @return the optativa
      */
-    public LocalTime [] getHoraEntrada()
+    public boolean isOptativa()
     {
-        return horaEntrada;
+        return optativa;
     }
 
     /**
-     * @param horaEntrada the horaEntrada to set
+     * @param optativa the optativa to set
      */
-    public void setHoraEntrada(LocalTime [] horaEntrada)
+    public void setOptativa(boolean optativa)
     {
-        this.horaEntrada = horaEntrada;
+        this.optativa = optativa;
     }
-
-    /**
-     * @return the horaSalida
-     */
-    public LocalTime [] getHoraSalida()
-    {
-        return horaSalida;
-    }
-
-    /**
-     * @param horaSalida the horaSalida to set
-     */
-    public void setHoraSalida(LocalTime [] horaSalida)
-    {
-        this.horaSalida = horaSalida;
-    }
-
-    /**
-     * @return the dias
-     */
-    public Dias[] getDias()
-    {
-        return dias;
-    }
-
-    /**
-     * @param dias the dias to set
-     */
-    public void setDias(Dias[] dias)
-    {
-        this.dias = dias;
-    }
-
-    /**
-     * @return the profesor
-     */
-    public String getProfesor()
-    {
-        return profesor;
-    }
-
-    /**
-     * @param profesor the profesor to set
-     */
-    public void setProfesor(String profesor)
-    {
-        this.profesor = profesor;
-    }
-    
     
 }
