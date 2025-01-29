@@ -4,20 +4,20 @@
  */
 package adh;
 
-import java.time.LocalTime;
+import herramientas.ColaCD;
 import java.util.ArrayList;
 
 /**
  *
  * @author ledrc
  */
-public class Materia
+public class Materia implements Cloneable
 {
     private String nombre;
-    private ArrayList<Grupo> grupos;
+    private ColaCD<Grupo> grupos;
     private boolean optativa;
 
-    public Materia(String nombre, ArrayList<Grupo> grupos, boolean optativa)
+    public Materia(String nombre, ColaCD<Grupo> grupos, boolean optativa)
     {
         this.nombre = nombre;
         this.grupos = grupos;
@@ -43,7 +43,7 @@ public class Materia
     /**
      * @return the grupos
      */
-    public ArrayList<Grupo> getGrupos()
+    public ColaCD<Grupo> getGrupos()
     {
         return grupos;
     }
@@ -51,7 +51,7 @@ public class Materia
     /**
      * @param grupos the grupos to set
      */
-    public void setGrupos(ArrayList<Grupo> grupos)
+    public void setGrupos(ColaCD<Grupo> grupos)
     {
         this.grupos = grupos;
     }
@@ -71,5 +71,15 @@ public class Materia
     {
         this.optativa = optativa;
     }
+    
+    
+    
+
+    @Override
+    public String toString()
+    {
+        return "Materia{" + "nombre=" + nombre + ", grupos=" + grupos + ", optativa=" + optativa + '}';
+    }
+    
     
 }

@@ -20,6 +20,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
+import view.CrearHorarios;
 import view.LoginStudent;
 import view.Principal;
 
@@ -66,7 +67,7 @@ public class MenuGaleria
                 Principal.pintar(new LoginStudent(dim));
                 break;
             case 1:
-                System.out.println("segunda Opcion");
+                Principal.pintar(new CrearHorarios());
                 break;
             case 2:
                 System.out.println("Tercera Opcion");

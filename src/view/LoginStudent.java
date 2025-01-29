@@ -6,8 +6,10 @@ package view;
 
 import adh.Grupo;
 import adh.Materia;
+import herramientas.ColaCD;
 import herramientas.ControlInter;
 import herramientas.Mensajes;
+import herramientas.Nodo;
 import herramientas.Scroll;
 import java.awt.Color;
 import java.awt.Component;
@@ -352,10 +354,12 @@ public class LoginStudent extends javax.swing.JPanel implements ControlInter
                 return;
             }
         }
-        ArrayList<Grupo> grupos = new ArrayList<>();
+        ColaCD<Grupo> grupos = new ColaCD<>();
         for (Formulario formulario: formularios)
         {
-            grupos.add(new Grupo(formulario.grupo, formulario.horasMaateria, formulario.dias, formulario.profesor));
+            Nodo nodo = new Nodo(new Grupo(formulario.grupo, formulario.horasMaateria, formulario.dias, formulario.profesor),
+            jTextField1.getText());
+            grupos.inserta(nodo);
         }
         Principal.getMaterias().add(new Materia(jTextField1.getText(), grupos, jRadioButton1.isSelected()));
         new Mensajes((JFrame) SwingUtilities.getWindowAncestor(this), true, Mensajes.MENSAJE_EXITO, "Se guardo la materia con exito").setVisible(true);

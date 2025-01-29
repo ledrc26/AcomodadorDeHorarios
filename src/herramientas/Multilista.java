@@ -4,6 +4,8 @@
  */
 package herramientas;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author ledrc
@@ -28,9 +30,9 @@ public class Multilista <T>
         this.raiz = raiz;
     }
     
-    public NodoLista inserta(NodoLista raiz, NodoLista nodo, String etiquetas[], int nivel)
+    public NodoLista inserta(NodoLista raiz, NodoLista nodo, ArrayList<String> etiquetas, int nivel)
     {
-        if (nivel == etiquetas.length - 1)
+        if (nivel == etiquetas.size() - 1)
         {
             ListaDLC obj = new ListaDLC();
             obj.setRaiz(raiz);
@@ -38,7 +40,7 @@ public class Multilista <T>
             return obj.getRaiz();
         } else
         {
-            NodoLista aux = ListaDLC.busca(raiz, etiquetas[nivel]);
+            NodoLista aux = ListaDLC.busca(raiz, etiquetas.get(nivel));
             if (aux != null)
             {
                 aux.setAbajo(inserta(aux.getAtras(), nodo, etiquetas, nivel + 1));

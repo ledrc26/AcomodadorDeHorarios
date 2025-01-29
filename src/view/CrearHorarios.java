@@ -4,6 +4,14 @@
  */
 package view;
 
+import adh.Grupo;
+import adh.Materia;
+import herramientas.ColaCD;
+import herramientas.Multilista;
+import herramientas.Nodo;
+import herramientas.NodoLista;
+import java.util.ArrayList;
+
 /**
  *
  * @author ledrc
@@ -14,9 +22,13 @@ public class CrearHorarios extends javax.swing.JPanel
     /**
      * Creates new form CrearHorarios
      */
+    Multilista<Nodo<Grupo>> mL = new Multilista();
+
     public CrearHorarios()
     {
         initComponents();
+        crear();
+        System.out.println("");
     }
 
     /**
@@ -41,6 +53,96 @@ public class CrearHorarios extends javax.swing.JPanel
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public void crear()
+    {
+        for (int i = 0; i < Principal.getMaterias().size(); i++)
+        {
+            insertar(mL.getRaiz(), mL.getRaiz(), new ArrayList(), Principal.getMaterias().get(i), i);
+        }
+    }
+
+    public void insertar(NodoLista raiz, NodoLista<Nodo<Grupo>> nodo, ArrayList<String> etiquetas, Materia materia, int n)
+    {
+        if (!materia.getGrupos().vacia())
+        {
+            if (raiz == null)
+            {
+                agregarGrupos(etiquetas, materia, n);
+            } else
+            {
+                ColaCD colaAux = new ColaCD<>();
+                Nodo nodoRaiz = materia.getGrupos().getAtras();
+                do
+                {
+                    Nodo<Grupo> nodoNuevo = materia.getGrupos().elimina();
+                    if (!nodo.getObj().getObj().chocaCon(nodoNuevo.getObj()))
+                    {
+                        colaAux.inserta(nodoNuevo);
+                    }
+                    materia.getGrupos().inserta(nodoNuevo);
+                } while (nodoRaiz != materia.getGrupos().getAtras());
+                if (colaAux.vacia())
+                {
+                    eliminarRama(raiz, nodo);
+                    insertar(raiz, nodo.getAbajo(), etiquetas, materia, n);
+                } else
+                {
+                    ColaCD todosGrupos = materia.getGrupos();
+                    materia.setGrupos(colaAux);
+                    if (nodo.getSiguiente() != raiz)
+                    {
+                        insertar(raiz, nodo.getSiguiente(), etiquetas, materia, n);
+                    } else
+                    {
+                        agregarGrupos(etiquetas, materia, n);
+                    }
+                    materia.setGrupos(todosGrupos);
+                    if (nodo.getAbajo() != null)
+                    {
+                        etiquetas.add(nodo.getEtiqueta());
+                        insertar(nodo.getAbajo(), nodo.getAbajo(), etiquetas, materia, n);
+                    }
+                }
+            }
+        }
+    }
+
+    public void agregarGrupos(ArrayList<String> etiquetas, Materia materia, int n)
+    {
+        Nodo<Grupo> nodoAux = materia.getGrupos().elimina();
+        String numeroEt = transformarNumero(n);
+        NodoLista nodoGrupo = new NodoLista(numeroEt, nodoAux);
+        mL.setRaiz(mL.inserta(mL.getRaiz(), nodoGrupo, etiquetas, 0));
+        etiquetas.add(numeroEt);
+        insertar(nodoGrupo.getAbajo(), nodoGrupo.getAbajo(), etiquetas, materia, n);
+        materia.getGrupos().inserta(nodoAux);
+        etiquetas.remove(etiquetas.size()-1);
+    }
+
+    public void eliminarRama(NodoLista raiz, NodoLista nodo)
+    {
+        if (nodo.getAbajo() != null)
+        {
+            NodoLista aux = nodo.getAbajo();
+            nodo.getAtras().setSiguiente(aux);
+            raiz.setAtras(aux.getAtras());
+            aux.getAtras().setSiguiente(raiz);
+            aux.setAtras(nodo.getAtras());
+        } else
+        {
+            eliminarRama(raiz, nodo.getAtras());
+        }
+    }
+
+    public String transformarNumero(int n)
+    {
+        String s = n + "";
+        for (int i = s.length(); i < 3; i++)
+        {
+            s = 0 + s;
+        }
+        return s;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
